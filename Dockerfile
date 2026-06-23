@@ -18,9 +18,9 @@ COPY app /app/app
 # Даём права на выполнение
 RUN chmod +x /app/app
 
-# Создаём скрипт запуска
+# Создаём скрипт с явным указанием запуска и флагом --accept-eula
 RUN echo '#!/bin/bash\n\
-/opt/mssql/bin/sqlservr & \n\
+/opt/mssql/bin/sqlservr --accept-eula & \n\
 sleep 30 \n\
 /app/app' > /app/start.sh && chmod +x /app/start.sh
 
